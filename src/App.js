@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { Provider } from 'react-redux'
+import store from './Redux/store';
+import CustomForm from './Components/CustomForm';
 
 function App() {
+
+  const formInputs = [
+    { name: 'firsName', label: 'First Name', type: 'text' ,placeholder:'First Name...'},
+    { name: 'lastName', label: 'Last Name', type: 'text' ,placeholder:'Last Name...'},
+    { name: 'email', label: 'Email', type: 'email',placeholder:'demomael@test.com...' },   
+    { name: 'books', label: 'Select books', type: 'select',options:['Book1','Book2','Book3'] },
+    { name: 'terms', label: 'Agree to terms', type: 'checkbox' }
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+       <div className="App">
+        <h1>Custom Form</h1>
+        <CustomForm inputs={formInputs}></CustomForm>
+      </div>
+    </Provider>
+  
   );
 }
 
