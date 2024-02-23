@@ -9,7 +9,7 @@ const FormInput =(props)=>{
               value={props.value}
               onChange={props.onchange}
             >
-              <option value="">Select {props.label}</option>
+              <option value="">{props.label}</option>
               {props.options.map(option => (
                 <option key={option} value={option}>{option}</option>
               ))}
